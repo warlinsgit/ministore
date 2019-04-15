@@ -1,0 +1,74 @@
+<!--<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+
+<div class="container">
+
+   <div class="d-flex flex-column ">
+
+      <div id="success" class="" {{#if noMessages }}hidden {{/if}}>
+         {{successMsg}}
+         <div id="note">
+            <a id="close">[close]</a>
+         </div>
+      </div>
+   </div>
+
+   <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-8 search">
+
+
+         <form method="GET" action="/search" class="card card-sm" autocomplete="on">
+
+            <div class="card-body row no-gutters align-items-center">
+
+               <!--end of col-->
+               <div class="col">
+                  <input class="form-control" name="search" type="text" placeholder="Game name">
+               </div>
+               <!--end of col-->
+               <div class="col-auto">
+                  <button class="btn search-btn  " type="submit">Search</button>
+               </div>
+               <!--end of col-->
+            </div>
+
+            {{#if noMatch  }}
+               <h3>{{ noMatch}}</h3>
+            {{/if}}
+
+      </div>
+      </form>
+
+   </div>
+
+</div>
+
+</div>
+<!--end of col-->
+
+<div class="container ">
+
+   <div class="index-page">
+
+      {{# each products }}
+         <div class="row">
+
+            {{# each this }}
+               <div class="col-sm-4  p-3 ">
+                  <div class="card item " style="width: 14rem;">
+                     <img src="{{ this.imagePath }}" class="card-img-top fade-img  " alt="...">
+                     <div class="card-body">
+                        <h5 class="card-title">{{ this.product_name }}</h5>
+                        <p class="card-text description">{{ this.description }} </p>
+                        <div class="price">
+                           <hr>
+                           € {{ this.price }}
+                           <a href="/add-to-cart/{{this._id}}" class="btn-buy float-right add-to-cart">Buy</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               {{/each}}
+         </div>
+         {{/each}}
+   </div>
+</div>

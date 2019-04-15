@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class="page-caption">
+            <h1 class="page-title">Profile:</h1><span class="text-success"> {{user.email}} </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.page-header-->
+  <!-- news -->
+  <div class="card-section">
+    <div class="container">
+      <div class="card-block bg-white mb30">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <!-- section-title -->
+
+            <!-- /.section-title -->
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col text-center">
+
+          <hr>
+          <h2>My Orders</h2>
+
+          {{# each orders }}
+            <div class="panel panel-default p-4">
+
+              <div class="panel-body">
+
+                <ul class="list-group">
+
+                  {{# each this.items }}
+
+                    <li class="list-group-item d-flex justify-content-between align-items-center p-4">
+
+
+                      {{ this.item.product_name }} | {{this.qty }} Units.
+                      <span class="badge badge-primary badge-pill"> € {{ this.price}}</span>
+                    </li>
+
+                    {{/ each }}
+
+                </ul>
+                <mark class="float-left text-primary  ">shopping date:{{ this.date_shopping }}</mark>
+              </div>
+
+              <div class="panel-footer float-right p-2">Total: € {{ this.cart.totalPrice }}</div>
+
+            </div>
+
+            {{/ each }}
+        </div>
+
+        <div class="p-5"></div>
+
+
+      </div>
+      <div class="p-5"></div>
+
+    </div>
+  </div>
+</div>

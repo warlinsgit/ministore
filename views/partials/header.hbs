@@ -1,0 +1,59 @@
+<!--- files include in all files - navbar displays in all pages-->
+
+<nav class="navbar navbar-expand-md bg-light navbar-light fixed-top" id="la1">
+   <a class="navbar-brand navbarbrand" href="/">Game Shopping</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+   <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+         <li class="nav-item">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/info/about">About Us</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/info/contact">Contact Us</a>
+         </li>
+        {{#if user.admin }}
+         <li class="nav-item">
+           <a class="nav-link" href="/product">Add Game</a>
+           {{ else }}
+         </li>
+       {{/ if }}
+         <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/user/profile" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            User Management
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+               {{# if login }}
+               <a class="dropdown-item" href="/user/profile"><i class="fas fa-user"></i> {{user.email}}</a>
+               <a class="dropdown-item" href="/user/logout"><i class="fas fa-user"></i>  Logout</a>
+            </div>
+            {{ else }}
+            <a class="dropdown-item" href="/user/signup"><i class="fas fa-user"></i>Sign Up</a>
+            <a class="dropdown-item" href="/user/signin"><i class="fas fa-user"></i>Sign In</a>
+            {{/ if }}
+         <li class="nav-item">
+            <a class="nav-link" href="/shopping-cart"><i class="fas fa-shopping-cart shopping-cart" ></i>Shopping cart <span class="badge">{{session.cart.totalQty}}</span></a>
+         </li>
+         </li>
+       </li>
+
+
+      </ul>
+   </div>
+</nav>
+
+<!-- header  -->
+<div class="image-aboutus-banner"style="margin-top:0px">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 ">
+         <h1 class="lg-text">Game Shopping</h1>
+         <p>Find it, love it, buy it.</p>
+       </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,36 @@
+<div class="container">
+
+	<div class="wrapper fadeInDown">
+		<div id="formContent">
+			<!-- Tabs Titles -->
+
+			<!-- Icon -->
+			<div class="fadeIn first">
+				<h1 class="p-5">User Login</h1>
+				{{#if hasErrors }}
+					<div class="alert alert-danger">
+						{{# each messages }}
+							<p>{{ this }}</p>
+							{{/each}}
+					</div>
+			</div>
+			{{/if}}
+			<!-- Login Form -->
+			<form action="/user/signin" method="post">
+				<input type="text" name="email" class="fadeIn second" placeholder="login">
+				<input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+
+				<input type="hidden" name="_csrf" value="{{ csrfToken }}">
+				<input type="submit" class="fadeIn fourth" value="Log In">
+
+			</form>
+
+			<!-- Remind Passowrd -->
+			<div id="formFooter" class="p-3">
+				<a class="underlineHover" href="/user/signup">Sign Up</a>
+			</div>
+
+		</div>
+	</div>
+</div>
+</div>

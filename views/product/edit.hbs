@@ -1,0 +1,75 @@
+<div class="container">
+
+<h3>{{viewTitle}}</h3>
+<!--<meta type="hidden" name="_csrf" content="{{csrfToken}}"> -->
+
+
+<div>
+
+    {{#if success }}
+      <div class="alert alert-success">
+
+        {{  successMsg1  }}
+
+      </div>
+</div>
+
+  {{else}}
+    {{# if errors }}
+      <div class="alert alert-danger">
+          {{# each errors }}
+          <p>{{ this.msg }}</p>
+          {{/each}}
+      </div>
+  {{/if}}
+
+
+<form action="/product/edit/?_csrf={{csrfToken}}/:id" method="POST"    autocomplete="off" enctype="multipart/form-data" >
+
+
+
+ <form action="/product" method="POST" autocomplete="off" enctype="multipart/form-data" >
+
+  <input type="hidden" name="_id" value="{{product._id}}">
+    <div class="form-group  ">
+        <label>Title</label>
+        <input type="text" class="form-control text-left" name="product_name" placeholder="Product Name" value="{{product.product_name}}">
+        <div class="text-danger">
+          {{product.fullProductNameError}}
+        </div>
+    </div>
+    <div class="form-group ">
+        <label>Description</label>
+
+        <textarea  class="md-textarea form-control" name="description" rows="3"> {{product.description}}</textarea>
+    </div>
+    <div class="form-row">
+        <div class="col-xs-2">
+            <label>Price</label>
+            <input type="text" class="form-control text-left " name="price" placeholder="Price" value="{{product.price}}">
+        </div>
+        <div class="col-xs-2">
+            <label>Seller</label>
+            <input type="text" class="form-control text-left " name="seller" placeholder="Seller" value="{{product.seller}}">
+        </div>
+
+        <div class="form-group col-md-4">
+
+
+          <input type="file" name="avatar" class="p-5 float-left" value="{{product.imagePath}}" />
+
+</div>
+
+    </div>
+    <div class="form-group" >
+
+
+        <button type="submit" id="b1" class="btn btn-info" ><i class="fa fa-database"  ></i> Submit</button>
+        <a class="btn btn-secondary" href="/product/list"><i class="fa fa-list-alt"></i> View All</a>
+    </div>
+</form>
+{{/if}}
+</div>
+</div>
+
+<script src="/javascripts/gameform.js" charset="utf-8"></script>

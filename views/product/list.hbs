@@ -1,0 +1,60 @@
+<div class="container">
+  <h3><a href="/product" class="btn btn-secondary">Create New</a>
+    Product List
+  </h3>
+  {{#if success }}
+  <div class="alert alert-success">
+    {{  successMsg1  }}
+  </div>
+  {{else}}
+  {{# if errors }}
+  <div class="alert alert-danger">
+    {{# each errors }}
+    <h1>{{ this.msg }}</h1>
+    {{/each}}
+  </div>
+  {{/if}}
+
+
+  <table class="table table-hover" style="overflow-x:auto;">
+    <thead>
+      <tr>
+        <th>Game </th>
+        <th>Description </th>
+        <th>Price</th>
+        <th>Seller</th>
+
+    <!--       <th>Picture</th> -->
+          <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each list }}
+
+      <tr>
+        <td>{{this.product_name}}</td>
+        <td>{{this.description}}</td>
+        <td>€ {{this.price}}</td>
+        <td> {{seller}} </td>
+      <!--  <td>{{this.imagePath}}</td> -->
+
+        <td>
+
+          <a href="/product/edit/{{this._id}}" class="text-info" ondblclick="showMessage()">
+          <i class="far fa-edit" ondblclick="showMessage()"></i>edit</a>
+          <a href="/product/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record? \n Your are allowed to delete your products only')"  class="text-danger" ondblclick="showMessage()"><i class="far fa-trash-alt"></i>Delete</a>
+        </td>
+        {{/each}}
+      </tr>
+      {{/if}}
+    </tbody>
+  </table>
+</div>
+
+
+<!--  Alert message for the button edit and delete -->
+<script type="text/javascript">
+  function showMessage(){
+    alert("Sorry page not allowed.");
+  }
+</script>

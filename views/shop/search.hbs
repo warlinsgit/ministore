@@ -1,0 +1,51 @@
+<!--<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8 search">
+
+            <form method="GET" action="/search" class="card card-sm" autocomplete="on">
+                <div class="card-body row no-gutters align-items-center">
+
+                    <!--end of col-->
+                    <div class="col">
+                        <input class="form-control form-control-lg form-control-borderless" name="search" type="text" placeholder="Game name">
+                    </div>
+                    <!--end of col-->
+                    <div class="col-auto">
+                        <button class="btn search-btn" type="submit">Search</button>
+                    </div>
+                    <!--end of col-->
+                </div>
+                {{#if noMatch  }}
+                    <h3>{{ noMatch}}</h3>
+                {{/if}}
+
+        </div>
+        </form>
+        <!--end of col-->
+    </div>
+
+</div>
+
+<div class="  container ">
+    <div class="row">
+        {{# each products }}
+            <div class="col-sm-4 indexs p-3">
+                <div class="card " style="width: 14rem;">
+                    <img src="{{ this.imagePath }}" class="card-img-top fade-img " alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ this.product_name }}</h5>
+                        <p class="card-text description">{{ this.description }} </p>
+                        <div class="price">
+                            <hr>
+                            € {{ this.price }}
+                            <a href="/add-to-cart/{{this._id}}" class="btn-buy float-right">Buy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+    </div>
+
+</div>
