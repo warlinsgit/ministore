@@ -73,14 +73,12 @@ app.get('*', function(req, res, next){
 });
 
 
-
 app.use('/user', userRoutes);
 app.use('/', routes);
 //app.use('/info/contact', contact);
 app.use('/info/contact', contact);
 app.use('/info/about', about);
 app.use('/product', product_controller );
-
 
 
 // catch 404 and forward to error handler
