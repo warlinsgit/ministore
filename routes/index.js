@@ -116,7 +116,7 @@ router.post('/checkout', isLoggedIn, function (req, res, next){
     return res.redirect('/shopping-cart');
   }
   var cart = new Cart(req.session.cart);
-  var stripe = require("stripe")("sk_test_nEDClzT0xF4G4grjhkVZhZrP");
+  var stripe = require("stripe")("");
 
 stripe.charges.create({
   amount: cart.totalPrice * 100,
